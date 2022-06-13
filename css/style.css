@@ -101,6 +101,7 @@
 }
 
 .result-item a {
+    display: block;
     color: rgb(71, 71, 71);
     cursor: pointer;
     font-size: 0.9rem;
@@ -108,6 +109,9 @@
     border: 0.5px solid black;
     background-color: white;
     transition: all 0.3s ease-in;
+    margin-bottom: 5px;
+    width: 30%;
+    text-align: center;
 }
 
 .result-item a:hover {
@@ -240,6 +244,9 @@
     /* ----  Results Area ---- */
     .result-item {
         width: 45%;
+    }
+    .result-item a {
+        width: 50%;
     }
     .result-item h2 {
         margin: 3px 0;
