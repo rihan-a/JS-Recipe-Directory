@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <!--  Search Area -->
+
+        <div class="search-area">
+            <h1>
+                Recipe Directory fetched from
+                <a href="http://www.themealdb.com" target="_blank">www.themealdb.com</a
+          >
+        </h1>
+        <div class="search-box">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Search by ingredient"
+          />
+          <button id="search-btn">Search</button>
+        </div>
+      </div>
+      <!--  Search results Area-->
+      <div id="result-area"></div>
+      <p id="loading">Loading......</p>
+
+      <!--  Recipe Details Model Area -->
+
+      <div class="model-area">
+        <button class="close-model">X</button>
+        <div id="info"></div>
+      </div>
+    </div>
+
+    <script src="./script/script.js"></script>
+  </body>
+</html>
