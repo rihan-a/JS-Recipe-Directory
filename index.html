@@ -10,33 +10,40 @@
 </head>
 
 <body>
-    <div class="container">
-        <!--  Search Area -->
+    <div class="container-bg">
+        <div class="container">
+            <!--  Search Area -->
 
-        <div class="search-area">
-            <h1>
-                Recipe Directory fetched from
-                <a href="http://www.themealdb.com" target="_blank">www.themealdb.com</a
+            <div class="search-area">
+                <h1>Recipe Directory</h1>
+                <span>
+            powered by
+            <a href="http://www.themealdb.com" target="_blank"
+              >www.themealdb.com</a
+            ></span
           >
-        </h1>
-        <div class="search-box">
-          <input
-            type="text"
-            id="search-input"
-            placeholder="Search by ingredient"
-          />
-          <button id="search-btn">Search</button>
+
+          <div class="search-box">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search by ingredient"
+            />
+            <button id="search-btn">Search</button>
+          </div>
         </div>
-      </div>
-      <!--  Search results Area-->
-      <div id="result-area"></div>
-      <p id="loading">Loading......</p>
 
-      <!--  Recipe Details Model Area -->
+        <!--  Search results Area-->
+        <div id="result-area"></div>
+        <p id="loading">Loading......</p>
 
-      <div class="model-area">
-        <button class="close-model">X</button>
-        <div id="info"></div>
+        <!--  Recipe Details Model Area -->
+
+        <div class="model-area">
+          <button class="close-model">X</button>
+
+          <div id="info"></div>
+        </div>
       </div>
     </div>
 

@@ -7,6 +7,8 @@ let closeModelBtn = document.querySelector(".close-model");
 let modelInfoArea = document.querySelector("#info");
 let loading = document.querySelector("#loading");
 let videoLink = document.querySelector(".video-link");
+//let body = document.querySelector("body");
+//let body = document.getElementsByName("body");
 
 searchBtn.addEventListener("click", getRecipes);
 resultsAreaHtml.addEventListener("click", getRecipeDetails);
@@ -32,12 +34,12 @@ function printRecipesHtml(recipes) {
     loading.style.display = "none";
     if (recipes.meals) {
         recipes.meals.forEach(function(item) {
-            // console.log(item);
-            resultsAreaHtml.innerHTML += `<div class="result-item" data-id="${item.idMeal}">
-                      <img src="${item.strMealThumb}" alt="" />
+            resultsAreaHtml.innerHTML += `<div class="result-item" >
+                      <img class="result-img" src="${item.strMealThumb}" data-id="${item.idMeal}" alt="" />
                       <h2>${item.strMeal}</h2>
-                      <a class="result-item-btn" > Get Details </a>
-                  </div>`;
+                     
+                    
+            </div>`;
         });
     } else {
         alert("no data available.");
@@ -46,9 +48,9 @@ function printRecipesHtml(recipes) {
 }
 
 function getRecipeDetails(e) {
-    if (e.target.classList.contains("result-item-btn")) {
+    if (e.target.classList.contains("result-img")) {
         modelInfoArea.innerHTML = "";
-        let id = e.target.parentElement.getAttribute("data-id");
+        let id = e.target.getAttribute("data-id");
 
         let url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`;
 
@@ -66,6 +68,7 @@ function closeModelBox() {
 
 function printModelInfo(data) {
     modelBox.style.display = "block";
+
     let meal = data.meals[0];
 
     console.log(meal);
@@ -75,7 +78,7 @@ function printModelInfo(data) {
   <div class="info-img">
     <img src="${meal.strMealThumb}" alt="" />
     <div class="video-link">
-<a href="${meal.strYoutube}" target="_blank"> Video link </a>
+<a href="${meal.strYoutube}" target="_blank"> RECIPE VIDEO </a>
 </div>
   </div>
   <div class="ingredients-container">
