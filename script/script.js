@@ -11,6 +11,14 @@ let videoLink = document.querySelector(".video-link");
 //let body = document.getElementsByName("body");
 
 searchBtn.addEventListener("click", getRecipes);
+
+searchInput.addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+        getRecipes();
+        console.log("ahmed");
+    }
+});
+
 resultsAreaHtml.addEventListener("click", getRecipeDetails);
 closeModelBtn.addEventListener("click", closeModelBox);
 
@@ -111,3 +119,17 @@ function printModelInfo(data) {
   </div>
 </div>`;
 }
+
+const hen = {
+    name: "Helen",
+    eggCount: 0,
+    layAnEgg: function() {
+        this.eggCount++;
+        return console.log("EGG");
+    },
+};
+
+console.log(hen.name);
+hen.layAnEgg();
+hen.layAnEgg();
+console.log(hen.eggCount);

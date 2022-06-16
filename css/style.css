@@ -262,7 +262,7 @@
     display: none;
 }
 
-@media (max-width: 530px) {
+@media (max-width: 900px) {
     .container {
         width: 90%;
     }
