@@ -7,15 +7,13 @@ let closeModelBtn = document.querySelector(".close-model");
 let modelInfoArea = document.querySelector("#info");
 let loading = document.querySelector("#loading");
 let videoLink = document.querySelector(".video-link");
-//let body = document.querySelector("body");
-//let body = document.getElementsByName("body");
+
 
 searchBtn.addEventListener("click", getRecipes);
 
 searchInput.addEventListener("keydown", function(e) {
     if (e.key === "Enter") {
         getRecipes();
-        console.log("ahmed");
     }
 });
 
@@ -120,16 +118,3 @@ function printModelInfo(data) {
 </div>`;
 }
 
-const hen = {
-    name: "Helen",
-    eggCount: 0,
-    layAnEgg: function() {
-        this.eggCount++;
-        return console.log("EGG");
-    },
-};
-
-console.log(hen.name);
-hen.layAnEgg();
-hen.layAnEgg();
-console.log(hen.eggCount);
