@@ -1,4 +1,4 @@
-JS-Recipe-Directory
+# JS-Recipe-Directory
 
 Recipe Directory using vanilla Javascript 
 
