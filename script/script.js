@@ -1,14 +1,16 @@
+// Variables
 let searchInput = document.querySelector("#search-input");
 let searchBtn = document.querySelector("#search-btn");
 let resultsAreaHtml = document.querySelector("#result-area");
 let resultItemBtn = document.querySelector(".result-item-btn");
-let modelBox = document.querySelector(".model-area");
+let modalBox = document.querySelector(".model-area");
 let closeModelBtn = document.querySelector(".close-model");
-let modelInfoArea = document.querySelector("#info");
+let modalInfoArea = document.querySelector("#info");
 let loading = document.querySelector("#loading");
 let videoLink = document.querySelector(".video-link");
 
 
+// Adding event listeners 
 searchBtn.addEventListener("click", getRecipes);
 
 searchInput.addEventListener("keydown", function(e) {
@@ -16,14 +18,15 @@ searchInput.addEventListener("keydown", function(e) {
         getRecipes();
     }
 });
-
 resultsAreaHtml.addEventListener("click", getRecipeDetails);
-closeModelBtn.addEventListener("click", closeModelBox);
+closeModalBtn.addEventListener("click", closeModalBox);
 
+
+// Function to fetch recipes by ingredient
 function getRecipes(data) {
     resultsAreaHtml.innerHTML = "";
+    // loading until the datais fetched
     loading.style.display = "block";
-    //www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast
     if (searchInput.value != "") {
         let url = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${searchInput.value}`;
         fetch(url)
@@ -36,6 +39,7 @@ function getRecipes(data) {
     }
 }
 
+// Function to inject the recipes into the html
 function printRecipesHtml(recipes) {
     loading.style.display = "none";
     if (recipes.meals) {
@@ -43,8 +47,6 @@ function printRecipesHtml(recipes) {
             resultsAreaHtml.innerHTML += `<div class="result-item" >
                       <img class="result-img" src="${item.strMealThumb}" data-id="${item.idMeal}" alt="" />
                       <h2>${item.strMeal}</h2>
-                     
-                    
             </div>`;
         });
     } else {
@@ -53,33 +55,37 @@ function printRecipesHtml(recipes) {
     searchInput.value = "";
 }
 
+// function to get the recipe details by ID
 function getRecipeDetails(e) {
     if (e.target.classList.contains("result-img")) {
-        modelInfoArea.innerHTML = "";
+        modalInfoArea.innerHTML = "";
         let id = e.target.getAttribute("data-id");
 
         let url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`;
 
         fetch(url)
             .then((res) => res.json())
-            .then((data) => printModelInfo(data))
+            .then((data) => printModalInfo(data))
             .catch((err) => console.log("err"));
         console.log(id);
     }
 }
 
-function closeModelBox() {
-    modelBox.style.display = "none";
+function closeModalBox() {
+    modalBox.style.display = "none";
 }
 
-function printModelInfo(data) {
-    modelBox.style.display = "block";
+
+
+// function to print the selected recipe detail into the modal
+function printModalInfo(data) {
+    modalBox.style.display = "block";
 
     let meal = data.meals[0];
 
     console.log(meal);
 
-    modelInfoArea.innerHTML = `<h2>${meal.strMeal}</h2>
+    modalInfoArea.innerHTML = `<h2>${meal.strMeal}</h2>
 <div class="info-container">
   <div class="info-img">
     <img src="${meal.strMealThumb}" alt="" />
